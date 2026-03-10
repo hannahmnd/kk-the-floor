@@ -1,0 +1,143 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Black Han Sans', sans-serif;
+  background: #00008B;
+  color: #e6cc00;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── SETUP SCREEN ── */
+#setup {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+#setup h1 { font-size: 4rem; margin-bottom: 30px; letter-spacing: 4px; }
+.setup-field { margin-bottom: 20px; }
+.setup-field label { display: block; font-size: 1.1rem; margin-bottom: 6px; }
+.setup-field input {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 10px 16px;
+  border: 3px solid #e6cc00;
+  border-radius: 12px;
+  width: 220px;
+  outline: none;
+  background: #00008B;
+  color: #e6cc00;
+}
+.setup-field input:focus { border-color: #2DCE56; }
+
+.player-select { display: flex; gap: 16px; justify-content: center; margin: 24px 0; }
+.player-card {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 1.2rem;
+  padding: 14px 28px;
+  border: 3px solid #e6cc00;
+  border-radius: 14px;
+  background: #00008B;
+  color: #e6cc00;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.player-card.selected {
+  background: #e6cc00;
+  color: #00008B;
+}
+.player-card:hover:not(.selected) { background: #000070; }
+
+.legend {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border: 2px solid #e6cc0044;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #e6cc00aa;
+  letter-spacing: 1px;
+}
+
+#startGameBtn {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 1.5rem;
+  padding: 16px 48px;
+  background: #2DCE56;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  transition: opacity 0.15s;
+}
+#startGameBtn:hover { opacity: 0.85; }
+
+/* ── GAME SCREEN ── */
+#game {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 24px 20px;
+  position: relative;
+}
+#game h1 { font-size: 5rem; letter-spacing: 6px; margin-bottom: 30px; }
+
+.players-row {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+.player-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.player-name { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+
+.timer-box {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1.4;
+  border: 5px solid #e6cc00;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.timer-box.active { background: #e6cc00; border-color: #e6cc00; color: #00008B; }
+.timer-box.inactive { background: #000050; border-color: #444; color: #667; }
+
+/* ── OVERLAY ── */
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  flex-direction: column;
+  gap: 24px;
+}
+#overlay.show { display: flex; }
+#overlayMsg { font-size: 4rem; color: #e6cc00; text-align: center; letter-spacing: 3px; }
+#overlayHint {
+  font-size: 1.2rem;
+  color: #e6cc0088;
+  letter-spacing: 2px;
+}
