@@ -77,7 +77,7 @@ function endGame() {
   times[active] = 0;
   updateDisplays();
   const winner = names[1 - active];
-  document.getElementById('overlayMsg').textContent = winner + ' VÕIDAB!';
+  document.getElementById('overlayMsg').textContent = winner + ' WINS!';
   document.getElementById('overlay').classList.add('show');
 }
 

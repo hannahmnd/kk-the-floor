@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE FLOOR</title>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- SETUP SCREEN -->
 <div id="setup">
-  <h1>THE FLOOR</h1>
+  <div class="legend">
+    <div>MÄNGIJA 1: F = ÕIGE, S = VAHELE</div>
+    <div>MÄNGIJA 2: J = ÕIGE, L = VAHELE</div>
+    <div>SPACE = START/STOP | N = UUS MÄNG</div>
+    <div>B = TAGASI | SHIFT+F = TÄISEKRAAN</div>
+  </div>
+  <img src="thefloorlogo.png" alt="THE FLOOR" class="setup-logo">
   <div class="setup-field">
     <label>MÄNGIJA 1</label>
     <input type="text" id="name1" value="MARI">
@@ -29,18 +35,12 @@
     <button class="player-card selected" id="sel1" onclick="selectFirst(0)">MARI</button>
     <button class="player-card" id="sel2" onclick="selectFirst(1)">MATI</button>
   </div>
-  <div class="legend">
-    <div>MÄNGIJA 1: F = ÕIGE, S = VAHELE</div>
-    <div>MÄNGIJA 2: J = ÕIGE, L = VAHELE</div>
-    <div>SPACE = START/STOP | N = UUS MÄNG</div>
-    <div>B = TAGASI | SHIFT+F = TÄISEKRAAN</div>
-  </div>
   <button id="startGameBtn" onclick="startGame()">START GAME</button>
 </div>
 
 <!-- GAME SCREEN -->
 <div id="game">
-  <h1>THE FLOOR</h1>
+  <img src="thefloorlogo.png" alt="THE FLOOR" class="game-logo">
   <div class="players-row">
     <div class="player-col">
       <div class="player-name" id="gName1"></div>
@@ -56,7 +56,6 @@
 <!-- OVERLAY -->
 <div id="overlay">
   <div id="overlayMsg"></div>
-  <div id="overlayHint">N = UUS MÄNG</div>
 </div>
 
 <script src="script.js"></script>
