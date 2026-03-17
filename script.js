@@ -39,6 +39,10 @@ function startGame() {
   document.getElementById('game').style.display = 'flex';
   onGameScreen = true;
 
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
+
   resetTimers();
 }
 
@@ -131,7 +135,6 @@ function backToSetup() {
   gameOver = false;
   active = -1;
   onGameScreen = false;
-  if (document.fullscreenElement) document.exitFullscreen();
   document.getElementById('overlay').classList.remove('show');
   document.getElementById('game').style.display = 'none';
   document.getElementById('setup').style.display = 'block';
@@ -146,18 +149,22 @@ function toggleFullscreen() {
 }
 
 document.addEventListener('keydown', (e) => {
+  const key = e.key.toLowerCase();
+
+  if (key === 'f' && e.shiftKey) {
+    e.preventDefault();
+    toggleFullscreen();
+    return;
+  }
+
   if (!onGameScreen) return;
   if (e.target.tagName === 'INPUT') return;
-
-  const key = e.key.toLowerCase();
 
   if (key === ' ') {
     e.preventDefault();
     pressStartStop();
-  } else if (key === 'f' && !e.shiftKey) {
+  } else if (key === 'f') {
     correctAnswer(0);
-  } else if (key === 'f' && e.shiftKey) {
-    toggleFullscreen();
   } else if (key === 's') {
     skipAnswer(0);
   } else if (key === 'j') {
