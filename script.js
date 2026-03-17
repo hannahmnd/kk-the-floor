@@ -8,6 +8,9 @@ let running = false;
 let gameOver = false;
 let onGameScreen = false;
 
+const bellSound = document.getElementById('bellAudio');
+const winSound = document.getElementById('winAudio');
+
 const nameIn1 = document.getElementById('name1');
 const nameIn2 = document.getElementById('name2');
 
@@ -77,6 +80,8 @@ function endGame() {
   times[active] = 0;
   updateDisplays();
   const winner = names[1 - active];
+  winSound.currentTime = 0;
+  winSound.play().catch(() => {});
   document.getElementById('overlayMsg').textContent = winner + ' WINS!';
   document.getElementById('overlay').classList.add('show');
 }
@@ -97,6 +102,8 @@ function pressStartStop() {
 
 function correctAnswer(playerIdx) {
   if (!running || active !== playerIdx || gameOver) return;
+  bellSound.currentTime = 0;
+  bellSound.play().catch(() => {});
   clearInterval(interval);
   active = 1 - playerIdx;
   setBoxStyles();
